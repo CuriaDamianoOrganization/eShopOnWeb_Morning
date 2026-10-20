@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.eShopWeb.PublicApi.AuthEndpoints;
 using System.Net.Http;
 
 namespace PublicApiIntegrationTests;
@@ -8,7 +7,7 @@ namespace PublicApiIntegrationTests;
 [TestClass]
 public class ProgramTest
 {
-    private static WebApplicationFactory<AuthenticateEndpoint> _application = new();
+    private static WebApplicationFactory<Program> _application = new();
 
     public static HttpClient NewClient
     {
@@ -21,7 +20,7 @@ public class ProgramTest
     [AssemblyInitialize]
     public static void AssemblyInitialize(TestContext _)
     {
-        _application = new WebApplicationFactory<AuthenticateEndpoint>();
+        _application = new WebApplicationFactory<Program>();
 
     }
 }
