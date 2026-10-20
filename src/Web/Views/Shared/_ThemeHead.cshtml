@@ -1,0 +1,18 @@
+<script>
+    (function () {
+        var preference = "system";
+        try {
+            var stored = localStorage.getItem("eshop-theme");
+            if (stored === "light" || stored === "dark" || stored === "system") {
+                preference = stored;
+            }
+        } catch (e) { }
+
+        var resolved = preference === "dark" || (preference === "system" && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches)
+            ? "dark"
+            : "light";
+        document.documentElement.setAttribute("data-theme", resolved);
+        document.documentElement.setAttribute("data-theme-preference", preference);
+        document.documentElement.style.colorScheme = resolved;
+    })();
+</script>

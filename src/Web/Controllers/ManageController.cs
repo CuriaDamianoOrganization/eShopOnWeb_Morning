@@ -529,7 +529,7 @@ public class ManageController : Controller
     {
         return string.Format(
             AuthenticatorUriFormat,
-            _urlEncoder.Encode("eShopOnWeb"),
+            _urlEncoder.Encode(BlazorShared.ApplicationBrand.Name),
             _urlEncoder.Encode(email),
             unformattedKey);
     }

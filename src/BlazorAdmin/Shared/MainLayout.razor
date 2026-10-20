@@ -13,7 +13,13 @@
 <div class="main">
    
     <div class="top-row px-4">
-        <a href="https://github.com/dotnet-architecture/eShopOnWeb" target="_blank" class="ml-md-auto">About eShopOnWeb</a>
+        <div class="esh-theme-switcher" role="group" aria-label="Color theme">
+            <span class="esh-theme-switcher-label">Theme</span>
+            <button type="button" class="esh-theme-switcher-option" data-theme-value="light" aria-pressed="false">Light</button>
+            <button type="button" class="esh-theme-switcher-option" data-theme-value="dark" aria-pressed="false">Dark</button>
+            <button type="button" class="esh-theme-switcher-option" data-theme-value="system" aria-pressed="true">System</button>
+        </div>
+        <a href="https://github.com/dotnet-architecture/eShopOnWeb" target="_blank" class="ml-md-auto">About @ApplicationBrand.Name</a>
     </div>
 
     <div class="content px-4">
@@ -25,6 +31,15 @@
 {
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
+            try
+            {
+                await JSRuntime.InvokeVoidAsync("eshopTheme.syncControls");
+            }
+            catch (JSException)
+            {
+                // Theme script is optional during the first render.
+            }
+
             if (firstRender)
             {
                 var authState = await AuthStateProvider.GetAuthenticationStateAsync();
