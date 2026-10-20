@@ -1,0 +1,376 @@
+:root {
+    --esh-bg: #ffffff;
+    --esh-text: #212121;
+    --esh-muted: #6c757d;
+    --esh-link: #000000;
+    --esh-link-hover: #75B918;
+    --esh-surface: #ffffff;
+    --esh-surface-2: #f7f7f7;
+    --esh-border: #e6e6e6;
+    --esh-input-bg: #ffffff;
+    --esh-input-text: #212121;
+    --esh-input-border: #cccccc;
+    --esh-stripe: #eeeeff;
+    --esh-footer-bg: #000000;
+    --esh-footer-text: #ffffff;
+    --esh-switcher-bg: #ffffff;
+    --esh-switcher-text: #212121;
+    --esh-switcher-border: #d0d7de;
+    --esh-switcher-active-bg: #00A69C;
+    --esh-switcher-active-text: #ffffff;
+    --esh-brand: #00A69C;
+    --esh-accent: #83D01B;
+    color-scheme: light;
+}
+
+html[data-theme="dark"] {
+    --esh-bg: #121417;
+    --esh-text: #e8eaed;
+    --esh-muted: #b0b6be;
+    --esh-link: #d7ebe8;
+    --esh-link-hover: #9be34a;
+    --esh-surface: #1c2128;
+    --esh-surface-2: #252b33;
+    --esh-border: #3a424c;
+    --esh-input-bg: #1c2128;
+    --esh-input-text: #e8eaed;
+    --esh-input-border: #5c6770;
+    --esh-stripe: #1a242c;
+    --esh-switcher-bg: #1c2128;
+    --esh-switcher-text: #e8eaed;
+    --esh-switcher-border: #3a424c;
+    color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme]) {
+        --esh-bg: #121417;
+        --esh-text: #e8eaed;
+        --esh-muted: #b0b6be;
+        --esh-link: #d7ebe8;
+        --esh-link-hover: #9be34a;
+        --esh-surface: #1c2128;
+        --esh-surface-2: #252b33;
+        --esh-border: #3a424c;
+        --esh-input-bg: #1c2128;
+        --esh-input-text: #e8eaed;
+        --esh-input-border: #5c6770;
+        --esh-stripe: #1a242c;
+        --esh-switcher-bg: #1c2128;
+        --esh-switcher-text: #e8eaed;
+        --esh-switcher-border: #3a424c;
+        color-scheme: dark;
+    }
+}
+
+html,
+body {
+    background-color: var(--esh-bg);
+    color: var(--esh-text);
+}
+
+a,
+a:visited {
+    color: var(--esh-link);
+}
+
+a:hover,
+a:active {
+    color: var(--esh-link-hover);
+}
+
+.esh-brand {
+    align-items: center;
+    color: var(--esh-text);
+    display: inline-flex;
+    gap: 0.65rem;
+    text-decoration: none;
+}
+
+.esh-brand:hover,
+.esh-brand:active,
+.esh-brand:visited {
+    color: var(--esh-text);
+}
+
+.esh-brand-mark {
+    align-items: center;
+    background-color: var(--esh-brand);
+    border-radius: 0.35rem;
+    color: #ffffff;
+    display: inline-flex;
+    font-size: 1.35rem;
+    font-weight: 700;
+    height: 2.5rem;
+    justify-content: center;
+    width: 2.5rem;
+}
+
+.esh-brand-name {
+    color: var(--esh-text);
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+}
+
+.esh-app-header-brand {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: space-between;
+}
+
+.esh-app-footer,
+.esh-app-footer a,
+.esh-app-footer a:hover,
+.esh-app-footer a:visited {
+    background-color: var(--esh-footer-bg);
+    color: var(--esh-footer-text);
+}
+
+.esh-theme-switcher {
+    align-items: center;
+    display: inline-flex;
+    gap: 0.25rem;
+}
+
+.esh-theme-switcher-label {
+    color: var(--esh-muted);
+    font-size: 0.75rem;
+    margin-right: 0.25rem;
+    text-transform: uppercase;
+}
+
+.esh-theme-switcher-option {
+    background-color: var(--esh-switcher-bg);
+    border: 1px solid var(--esh-switcher-border);
+    border-radius: 0.2rem;
+    color: var(--esh-switcher-text);
+    cursor: pointer;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    padding: 0.3rem 0.5rem;
+}
+
+.esh-theme-switcher-option:hover,
+.esh-theme-switcher-option:focus {
+    border-color: var(--esh-brand);
+    outline: 2px solid var(--esh-brand);
+    outline-offset: 1px;
+}
+
+.esh-theme-switcher-option[aria-pressed="true"],
+.esh-theme-switcher-option.is-active {
+    background-color: var(--esh-switcher-active-bg);
+    border-color: var(--esh-switcher-active-bg);
+    color: var(--esh-switcher-active-text);
+}
+
+.form-control,
+.form-input,
+.esh-basket-input,
+.custom-select,
+.input-group-addon,
+select.form-control,
+textarea.form-control {
+    background-color: var(--esh-input-bg);
+    border-color: var(--esh-input-border);
+    color: var(--esh-input-text);
+}
+
+.form-control:focus,
+.esh-basket-input:focus {
+    border-color: var(--esh-brand);
+    box-shadow: 0 0 0 0.15rem rgba(0, 166, 156, 0.35);
+    color: var(--esh-input-text);
+}
+
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+    background-color: var(--esh-surface-2);
+    color: var(--esh-muted);
+}
+
+hr,
+.table > thead > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > td,
+.table thead th,
+.table td,
+.table th {
+    border-color: var(--esh-border);
+}
+
+.table {
+    color: var(--esh-text);
+}
+
+.esh-identity-drop {
+    background: var(--esh-surface);
+    color: var(--esh-text);
+}
+
+.esh-identity:hover .esh-identity-drop {
+    border-color: var(--esh-border);
+}
+
+.esh-orders-items:nth-of-type(2n + 1):before {
+    background-color: var(--esh-stripe);
+}
+
+.esh-basket-items--border {
+    border-bottom-color: var(--esh-border);
+}
+
+.main .top-row {
+    background-color: var(--esh-surface-2);
+    border-bottom-color: var(--esh-border);
+    color: var(--esh-text);
+    gap: 0.75rem;
+}
+
+@media (max-width: 767.98px) {
+    .main .top-row:not(.auth) {
+        display: flex;
+    }
+}
+
+.sidebar .navbar-brand {
+    color: #ffffff;
+    line-height: 1.2;
+    white-space: normal;
+}
+
+html[data-theme="dark"] .btn-default,
+html[data-theme="dark"] .btn-light {
+    background-color: var(--esh-surface-2);
+    border-color: var(--esh-border);
+    color: var(--esh-text);
+}
+
+html[data-theme="dark"] .btn-default:hover,
+html[data-theme="dark"] .btn-default:focus,
+html[data-theme="dark"] .btn-light:hover,
+html[data-theme="dark"] .btn-light:focus {
+    background-color: var(--esh-border);
+    color: var(--esh-text);
+}
+
+html[data-theme="dark"] .nav > li > a:hover,
+html[data-theme="dark"] .nav > li > a:focus,
+html[data-theme="dark"] .dropdown-menu,
+html[data-theme="dark"] .dropdown-item,
+html[data-theme="dark"] .list-group-item,
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .panel,
+html[data-theme="dark"] .panel-default,
+html[data-theme="dark"] .panel-body,
+html[data-theme="dark"] .well,
+html[data-theme="dark"] .modal-content,
+html[data-theme="dark"] .popover,
+html[data-theme="dark"] .page-link {
+    background-color: var(--esh-surface);
+    border-color: var(--esh-border);
+    color: var(--esh-text);
+}
+
+html[data-theme="dark"] .dropdown-item:hover,
+html[data-theme="dark"] .dropdown-item:focus,
+html[data-theme="dark"] .page-link:hover {
+    background-color: var(--esh-surface-2);
+    color: var(--esh-text);
+}
+
+html[data-theme="dark"] .close {
+    color: var(--esh-text);
+    opacity: 0.8;
+    text-shadow: none;
+}
+
+html[data-theme="dark"] .modal-header,
+html[data-theme="dark"] .modal-footer,
+html[data-theme="dark"] .card-header,
+html[data-theme="dark"] .list-group-item {
+    border-color: var(--esh-border);
+}
+
+html[data-theme="dark"] .table-striped > tbody > tr:nth-of-type(odd),
+html[data-theme="dark"] .table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--esh-stripe);
+    color: var(--esh-text);
+}
+
+html[data-theme="dark"] .table-hover tbody tr:hover {
+    background-color: var(--esh-surface-2);
+    color: var(--esh-text);
+}
+
+html[data-theme="dark"] .alert-info {
+    background-color: #16343a;
+    border-color: #1f6670;
+    color: #d7f4f1;
+}
+
+html[data-theme="dark"] .alert-warning {
+    background-color: #3a3114;
+    border-color: #8a7340;
+    color: #ffe7a3;
+}
+
+html[data-theme="dark"] .alert-success {
+    background-color: #1c3314;
+    border-color: #4a760f;
+    color: #d9f5b8;
+}
+
+html[data-theme="dark"] code,
+html[data-theme="dark"] pre {
+    background-color: var(--esh-surface-2);
+    color: var(--esh-text);
+}
+
+html[data-theme="dark"] .text-muted {
+    color: var(--esh-muted);
+}
+
+html[data-theme="dark"] .img-thumbnail {
+    background-color: var(--esh-surface);
+    border-color: var(--esh-border);
+}
+
+html[data-theme="dark"] .esh-basketstatus-image {
+    filter: invert(1) brightness(1.6);
+}
+
+html[data-theme="dark"] .form-control::placeholder {
+    color: var(--esh-muted);
+}
+
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme]) .btn-default,
+    html:not([data-theme]) .btn-light,
+    html:not([data-theme]) .dropdown-menu,
+    html:not([data-theme]) .modal-content,
+    html:not([data-theme]) .list-group-item,
+    html:not([data-theme]) .card,
+    html:not([data-theme]) .well,
+    html:not([data-theme]) .panel,
+    html:not([data-theme]) .page-link {
+        background-color: var(--esh-surface);
+        border-color: var(--esh-border);
+        color: var(--esh-text);
+    }
+
+    html:not([data-theme]) .table-striped tbody tr:nth-of-type(odd),
+    html:not([data-theme]) .table-striped > tbody > tr:nth-of-type(odd) {
+        background-color: var(--esh-stripe);
+        color: var(--esh-text);
+    }
+
+    html:not([data-theme]) .esh-basketstatus-image {
+        filter: invert(1) brightness(1.6);
+    }
+}

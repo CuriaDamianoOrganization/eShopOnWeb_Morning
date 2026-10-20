@@ -10,11 +10,12 @@
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <partial name="_ThemeHead" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>@ViewData["Title"] - Microsoft.eShopOnWeb</title>
+    <title>@ViewData["Title"] - @BlazorShared.ApplicationBrand.Name</title>
     <base href="~/" />
     <environment include="Development,Docker">
         <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
@@ -27,6 +28,7 @@
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
     </environment>
     <link href="css/admin.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/theme.css" asp-append-version="true" />
     <script src="_content/BlazorInputFile/inputfile.js"></script>
     <script>
 
@@ -66,7 +68,8 @@
     </script>
 </head>
 <body>
-    <div id="admin"></div>    
+    <div id="admin"></div>
+    <script src="~/js/theme.js" asp-append-version="true"></script>
     <script src="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication/AuthenticationService.js"></script>
     <script src="_framework/blazor.webassembly.js"></script>
 
