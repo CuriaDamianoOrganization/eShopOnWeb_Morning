@@ -8,6 +8,7 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" />
 		<PackageReference Include="Microsoft.Extensions.Identity.Core" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Configuration" />
+		<PackageReference Include="System.Net.Http.Json" />
 	</ItemGroup>
 
 	<ItemGroup>
